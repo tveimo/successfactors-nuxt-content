@@ -173,7 +173,7 @@ export default defineDriver(opts => {
   let jobs = {};
 
   const syncContent = async () => {
-    if ((lastCheck + opts.ttl * 1000) > Date.now()) {
+    if ((lastCheck + (opts.ttl ? opts.ttl : 60) * 1000) > Date.now()) {
       return;
     }
 
